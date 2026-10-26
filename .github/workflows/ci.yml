@@ -1,0 +1,35 @@
+name: Release validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            g++ cmake make pkg-config libgrpc++-dev protobuf-compiler \
+            protobuf-compiler-grpc libprotobuf-dev libssl-dev python3
+      - name: Configure Release
+        run: cmake -S . -B build-release -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build-release --parallel 2
+      - name: Verify all 34 tests are registered
+        run: |
+          ctest --test-dir build-release --show-only=json-v1 > build-release/tests.json
+          python3 -c 'import json; tests = json.load(open("build-release/tests.json"))["tests"]; assert len(tests) == 34, f"Expected 34 tests, found {len(tests)}"'
+      - name: Run complete correctness suite
+        timeout-minutes: 5
+        run: ctest --test-dir build-release --output-on-failure --parallel 1 --timeout 30 --no-tests=error
+      - name: Verify experimental evidence
+        run: python3 packaging/verify_evidence.py

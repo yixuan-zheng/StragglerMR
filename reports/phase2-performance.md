@@ -49,6 +49,6 @@ Speculation does not cancel losers. Faster result publication can therefore coex
 - Injected crashes write a timing record before exiting; the study reconciles this local evidence because the coordinator cannot retrieve a terminal RPC snapshot from a dead process. Coordinator-only work metrics remain explicitly labeled observed/lower bounds when attempts are unresolved.
 
 ```sh
-python3 benchmarks/run_study.py --bin-dir build-phase2-release --output runs/phase2-study-reproduction
+python3 benchmarks/run_study.py --bin-dir build-release --output runs/phase2-study-reproduction
 python3 benchmarks/analyze.py --raw runs/phase2-study-reproduction --output reports/reproduction
 ```

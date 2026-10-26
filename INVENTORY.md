@@ -1,5 +1,6 @@
 # File inventory
 
+- `.github/workflows/ci.yml`
 - `.gitignore`
 - `CMakeLists.txt`
 - `INVENTORY.md`
