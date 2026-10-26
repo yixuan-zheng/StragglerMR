@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "tasks": 16,
+  "accepted": 16,
+  "attempts": 17,
+  "speculative_attempts": 1,
+  "backup_wins": 1,
+  "late_rejected": 1,
+  "expired": 0,
+  "speculative_outstanding_peak": 1,
+  "workers": [
+    {
+      "capacity": 1,
+      "peak_active": 1
+    },
+    {
+      "capacity": 1,
+      "peak_active": 1
+    }
+  ],
+  "original_trace_sha256": "fcffb5384a522a8ed1a800abe3cb34834e724954fe3b1adb75036365d53fc2c2",
+  "sanitized_trace_sha256": "d491c76b98128dd92a6f8449288bc5d7915821a8344ec9ed9bc350021e25fa85",
+  "result_sha256": "7c63a741bb8af1d133d0aac7de7140b2e6f2b7b9e2ac7f3b3ff97b0ee65c2247",
+  "oracle_match": true,
+  "late_workspace_mutation_preserved_accepted_bytes": true,
+  "all_processes_waited": true,
+  "source": "New release-candidate validation; not a benchmark sample",
+  "redactions": [
+    "Replace opaque job id with job-example",
+    "Replace final artifact absolute path with result.tsv",
+    "Exclude all raw workspaces, worker logs and process IDs"
+  ]
+}

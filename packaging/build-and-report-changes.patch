@@ -1,0 +1,28 @@
+--- development/CMakeLists.txt
++++ candidate/CMakeLists.txt
+@@ -5,7 +5,11 @@
+ set(CMAKE_CXX_EXTENSIONS OFF)
+ find_package(Threads REQUIRED)
+ find_package(OpenSSL REQUIRED COMPONENTS Crypto)
+-find_package(Protobuf CONFIG REQUIRED)
++find_package(Protobuf CONFIG QUIET)
++if(NOT Protobuf_FOUND)
++  # Some Linux distributions provide only CMake's FindProtobuf module.
++  find_package(Protobuf REQUIRED)
++endif()
+ find_package(gRPC CONFIG REQUIRED)
+ find_package(Python3 COMPONENTS Interpreter REQUIRED)
+ option(STRAGGLERMR_SANITIZERS "Enable selected sanitizers" OFF)
+--- development/benchmarks/analyze.py
++++ candidate/benchmarks/analyze.py
+@@ -105,8 +105,8 @@
+     lines += ["", f"{len(regressed)} of {len(pairs)} matched pairs had higher job latency with speculation enabled. Three repetitions expose some natural variability but are too few for strong statistical significance claims. No significance or general speedup guarantee is claimed.", "",
+               "Speculation does not cancel losers. Faster result publication can therefore coexist with almost unchanged time until all workers become idle. The full process/drain durations are retained in the CSV; the large wasted occupied-slot fractions in straggler cases include the original's injected delay. CPU costs are small and noisy at this scale. The saturated control deliberately has one worker/one slot and cannot place a backup on another worker. Concurrent multiworker saturation and supersession accounting are tested separately with deterministic gates.", "",
+               "## Evidence and reproduction", "", "- Frozen policy: `docs/speculative-policy.md`; frozen schedules: `benchmarks/manifest.json`.",
+-              "- Raw private run root: `" + str(raw.relative_to(SOURCE) if raw.is_relative_to(SOURCE) else raw.name) + "`.",
+-              "- Each raw run contains original inputs, immutable snapshots, worker candidates and timing files, accepted results, coordinator metrics/events, stdout logs, an observation and process cleanup record.",
++              "- Evidence input directory: `" + str(raw.relative_to(SOURCE) if raw.is_relative_to(SOURCE) else raw.name) + "`.",
++              ("- This directory contains sanitized numerical observations from the original Phase 2 study. Full internal runs are retained privately and are not redistributed." if manifest.get("curated_evidence") else "- Each raw run contains original inputs, immutable snapshots, worker candidates and timing files, accepted results, coordinator metrics/events, stdout logs, an observation and process cleanup record."),
+               "- The study's manifest includes source and binary SHA-256 fingerprints. `observations.jsonl` preserves every run, and the CSV/pair JSON preserve every numerical comparison.",
+               "- Injected crashes write a timing record before exiting; the study reconciles this local evidence because the coordinator cannot retrieve a terminal RPC snapshot from a dead process. Coordinator-only work metrics remain explicitly labeled observed/lower bounds when attempts are unresolved.", "",
+               "```sh", "python3 benchmarks/run_study.py --bin-dir build-phase2-release --output runs/phase2-study-reproduction",

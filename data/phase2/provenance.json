@@ -1,0 +1,27 @@
+{
+  "origin": "Final approved Phase 2 integrity revision, 30 matched-study runs",
+  "original_observations_sha256": "1be5484d1feb12c0e71574f2e3460dffeda2a44bb50e9b0d1a27e0dd34a18d82",
+  "transformations": [
+    "Keep all original flat observation fields unchanged; omit nested metrics and internal worker timing paths.",
+    "Keep logical per-attempt outcomes and timing values; omit job UUIDs, process IDs and paths.",
+    "Keep original experiment manifest and measured source/binary hashes; mark evidence curated.",
+    "Change analyzer narrative directory descriptions only; numerical output hashes remain identical."
+  ],
+  "curated_sha256": {
+    "data/phase2/observations.jsonl": "ae3cea01e8b1854a179dbe799a483bdbd6cd6cde8e57ea8504207d8d818bdd5e",
+    "data/phase2/manifest.json": "2b46c43c434f02459480523f95dea6ed99ed7ec2e958eb762411ebe58697da55",
+    "data/phase2/attempts.jsonl": "d967e0d11b50b6ef6125f3c890501a37fcfc1d2ba4a64b98cf85a33c59af4ed6",
+    "reports/phase2-observations.csv": "921010dbe86e339b1df3ee845a3110f789b338f5052eb5d94a8f3d9906fb089f",
+    "reports/phase2-pairs.json": "4171d85daf3a1811fcffbc7b820f2cf2a13ecd6e928d6613e6ebdf1511d452d9",
+    "reports/phase2-latency.svg": "603f0a80186548564cfb0ac9d8f0722728b63171a23278f6c01a7df3c46db343",
+    "reports/phase2-waste.svg": "dfa11c6c104e0ce38ba5563414f84e9c28bfc4fe4acfbcae99a187657d8c6e49"
+  },
+  "original_analysis_sha256": {
+    "reports/phase2-observations.csv": "921010dbe86e339b1df3ee845a3110f789b338f5052eb5d94a8f3d9906fb089f",
+    "reports/phase2-pairs.json": "4171d85daf3a1811fcffbc7b820f2cf2a13ecd6e928d6613e6ebdf1511d452d9",
+    "reports/phase2-latency.svg": "603f0a80186548564cfb0ac9d8f0722728b63171a23278f6c01a7df3c46db343",
+    "reports/phase2-waste.svg": "dfa11c6c104e0ce38ba5563414f84e9c28bfc4fe4acfbcae99a187657d8c6e49"
+  },
+  "full_internal_workspaces_and_logs_included": false,
+  "benchmark_rerun_for_packaging": false
+}

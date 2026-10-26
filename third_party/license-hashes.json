@@ -1,0 +1,11 @@
+{
+  "re2-LICENSE.txt": "6040cda75d90b1738292a631d89934c411ef7ffd543c4d6a1b7edfc8edf29449",
+  "grpc-NOTICE.txt": "693ff28ec216d5112ac1bbfe64ef539005867d1c7bd427b57d579683293b947f",
+  "utf8_range-LICENSE.txt": "02de69b64fc36d9e938f418e52723e42f0b2b226d58a9cb3c8dcbdf7059f5074",
+  "grpc-LICENSE.txt": "58c86a3f2b5cca0ebdf9ed3e7f4e6dc38e3b38796d8c3dc92064c62a4e39d0dd",
+  "abseil-LICENSE.txt": "c79a7fea0e3cac04cd43f20e7b648e5a0ff8fa5344e644b0ee09ca1162b62747",
+  "openssl-LICENSE.txt": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+  "c-ares-LICENSE.txt": "460f5e768fda3752ca2169a95df062578a10fb126bfd65f3b9b1a1bed2f84807",
+  "protobuf-LICENSE.txt": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+  "zlib-LICENSE.txt": "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243"
+}

@@ -1,0 +1,2 @@
+The slow worker counts words.
+The fast worker counts words too.

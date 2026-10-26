@@ -1,0 +1,167 @@
+[
+  {
+    "scenario": "healthy",
+    "repetition": 0,
+    "speedup": 0.9909638554216867,
+    "latency_change_pct": 0.911854103343468,
+    "cpu_change_pct": 3.9315875381449095,
+    "slot_change_pct": 0.9245126108088808,
+    "spec_cpu_over_baseline_pct": 0.0,
+    "wasted_cpu_fraction_pct": 0.0,
+    "wasted_slot_fraction_pct": 0.0
+  },
+  {
+    "scenario": "healthy",
+    "repetition": 1,
+    "speedup": 0.987987987987988,
+    "latency_change_pct": 1.2158054711246091,
+    "cpu_change_pct": 3.843702700549678,
+    "slot_change_pct": 2.404853105794613,
+    "spec_cpu_over_baseline_pct": 0.0,
+    "wasted_cpu_fraction_pct": 0.0,
+    "wasted_slot_fraction_pct": 0.0
+  },
+  {
+    "scenario": "healthy",
+    "repetition": 2,
+    "speedup": 1.006060606060606,
+    "latency_change_pct": -0.6024096385542133,
+    "cpu_change_pct": 8.759043260002963,
+    "slot_change_pct": 3.4901178866871385,
+    "spec_cpu_over_baseline_pct": 0.0,
+    "wasted_cpu_fraction_pct": 0.0,
+    "wasted_slot_fraction_pct": 0.0
+  },
+  {
+    "scenario": "severe",
+    "repetition": 0,
+    "speedup": 3.690265486725664,
+    "latency_change_pct": -72.90167865707434,
+    "cpu_change_pct": 6.703395323328509,
+    "slot_change_pct": 1.8997705463219994,
+    "spec_cpu_over_baseline_pct": 5.8109388243506,
+    "wasted_cpu_fraction_pct": 12.146344882368059,
+    "wasted_slot_fraction_pct": 60.57182882829142
+  },
+  {
+    "scenario": "severe",
+    "repetition": 1,
+    "speedup": 3.7276785714285716,
+    "latency_change_pct": -73.17365269461078,
+    "cpu_change_pct": 7.910439737662611,
+    "slot_change_pct": 0.7766035589886977,
+    "spec_cpu_over_baseline_pct": 8.120094613482422,
+    "wasted_cpu_fraction_pct": 12.705806162353351,
+    "wasted_slot_fraction_pct": 60.70953075127996
+  },
+  {
+    "scenario": "severe",
+    "repetition": 2,
+    "speedup": 3.708240534521158,
+    "latency_change_pct": -73.03303303303304,
+    "cpu_change_pct": 31.640625,
+    "slot_change_pct": 2.646940071235493,
+    "spec_cpu_over_baseline_pct": 8.447265625,
+    "wasted_cpu_fraction_pct": 11.982894047826846,
+    "wasted_slot_fraction_pct": 60.33608431937954
+  },
+  {
+    "scenario": "moderate",
+    "repetition": 0,
+    "speedup": 1.0105900151285931,
+    "latency_change_pct": -1.0479041916167664,
+    "cpu_change_pct": -2.8525868178596703,
+    "slot_change_pct": 3.56133330027788,
+    "spec_cpu_over_baseline_pct": 5.720922907315536,
+    "wasted_cpu_fraction_pct": 5.888909153545302,
+    "wasted_slot_fraction_pct": 3.5853960104962184
+  },
+  {
+    "scenario": "moderate",
+    "repetition": 1,
+    "speedup": 0.9984962406015038,
+    "latency_change_pct": 0.1506024096385561,
+    "cpu_change_pct": -5.805098993255409,
+    "slot_change_pct": 3.610010368595984,
+    "spec_cpu_over_baseline_pct": 5.502482248462193,
+    "wasted_cpu_fraction_pct": 5.841592474382664,
+    "wasted_slot_fraction_pct": 3.7971629533247206
+  },
+  {
+    "scenario": "moderate",
+    "repetition": 2,
+    "speedup": 1.007473841554559,
+    "latency_change_pct": -0.7418397626112738,
+    "cpu_change_pct": 4.339726924730303,
+    "slot_change_pct": 3.5425109972069935,
+    "spec_cpu_over_baseline_pct": 6.509590387095454,
+    "wasted_cpu_fraction_pct": 6.238841694296757,
+    "wasted_slot_fraction_pct": 3.618521246721688
+  },
+  {
+    "scenario": "no_spare",
+    "repetition": 0,
+    "speedup": 1.000982800982801,
+    "latency_change_pct": -0.09818360333824216,
+    "cpu_change_pct": -7.905654714616106,
+    "slot_change_pct": -1.3195497599244321,
+    "spec_cpu_over_baseline_pct": 0.0,
+    "wasted_cpu_fraction_pct": 0.0,
+    "wasted_slot_fraction_pct": 0.0
+  },
+  {
+    "scenario": "no_spare",
+    "repetition": 1,
+    "speedup": 0.9975393700787402,
+    "latency_change_pct": 0.24666995559941007,
+    "cpu_change_pct": -4.394199446565549,
+    "slot_change_pct": -0.12712902830535056,
+    "spec_cpu_over_baseline_pct": 0.0,
+    "wasted_cpu_fraction_pct": 0.0,
+    "wasted_slot_fraction_pct": 0.0
+  },
+  {
+    "scenario": "no_spare",
+    "repetition": 2,
+    "speedup": 0.9873908826382153,
+    "latency_change_pct": 1.2770137524557912,
+    "cpu_change_pct": 0.28021267423481433,
+    "slot_change_pct": 0.09062000821988825,
+    "spec_cpu_over_baseline_pct": 0.0,
+    "wasted_cpu_fraction_pct": 0.0,
+    "wasted_slot_fraction_pct": 0.0
+  },
+  {
+    "scenario": "crash",
+    "repetition": 0,
+    "speedup": 1.6306306306306306,
+    "latency_change_pct": -38.67403314917127,
+    "cpu_change_pct": 5.395303717652422,
+    "slot_change_pct": 0.21598347682680874,
+    "spec_cpu_over_baseline_pct": 7.2270250221119,
+    "wasted_cpu_fraction_pct": 1.0882512181916622,
+    "wasted_slot_fraction_pct": 37.64543828972366
+  },
+  {
+    "scenario": "crash",
+    "repetition": 1,
+    "speedup": 1.5504385964912282,
+    "latency_change_pct": -35.50212164073551,
+    "cpu_change_pct": 2.3222790876549437,
+    "slot_change_pct": 0.3292425665943899,
+    "spec_cpu_over_baseline_pct": 8.516995532940863,
+    "wasted_cpu_fraction_pct": 0.9309587140048572,
+    "wasted_slot_fraction_pct": 37.78861415062105
+  },
+  {
+    "scenario": "crash",
+    "repetition": 2,
+    "speedup": 1.6146993318485523,
+    "latency_change_pct": -38.06896551724138,
+    "cpu_change_pct": -14.695658991715232,
+    "slot_change_pct": -0.1354478833221484,
+    "spec_cpu_over_baseline_pct": 4.895068342785459,
+    "wasted_cpu_fraction_pct": 0.9712009803921569,
+    "wasted_slot_fraction_pct": 37.57059060759932
+  }
+]

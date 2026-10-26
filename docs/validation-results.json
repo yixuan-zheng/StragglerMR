@@ -1,0 +1,86 @@
+{
+  "suites": [
+    {
+      "platform": "macOS arm64",
+      "configuration": "debug",
+      "passed": 34,
+      "total": 34,
+      "returncode": 0,
+      "summary": [
+        "100% tests passed out of 34",
+        "Total Test time (real) =   9.55 sec"
+      ]
+    },
+    {
+      "platform": "macOS arm64",
+      "configuration": "release",
+      "passed": 34,
+      "total": 34,
+      "returncode": 0,
+      "summary": [
+        "100% tests passed out of 34",
+        "Total Test time (real) =   9.19 sec"
+      ]
+    },
+    {
+      "platform": "macOS arm64",
+      "configuration": "ubsan",
+      "passed": 34,
+      "total": 34,
+      "returncode": 0,
+      "summary": [
+        "100% tests passed out of 34",
+        "Total Test time (real) =   9.55 sec"
+      ]
+    },
+    {
+      "platform": "Debian 13 arm64 container",
+      "configuration": "debug",
+      "passed": 34,
+      "total": 34,
+      "summary": [
+        "100% tests passed, 0 tests failed out of 34",
+        "Total Test time (real) =  10.15 sec"
+      ]
+    },
+    {
+      "platform": "Debian 13 arm64 container",
+      "configuration": "release",
+      "passed": 34,
+      "total": 34,
+      "summary": [
+        "100% tests passed, 0 tests failed out of 34",
+        "Total Test time (real) =   9.82 sec"
+      ]
+    },
+    {
+      "platform": "Debian 13 arm64 container",
+      "configuration": "ubsan",
+      "passed": 34,
+      "total": 34,
+      "summary": [
+        "100% tests passed, 0 tests failed out of 34",
+        "Total Test time (real) =  10.68 sec"
+      ]
+    },
+    {
+      "platform": "Debian 13 arm64 container",
+      "configuration": "asan",
+      "passed": 34,
+      "total": 34,
+      "summary": [
+        "100% tests passed, 0 tests failed out of 34",
+        "Total Test time (real) =  11.18 sec"
+      ]
+    }
+  ],
+  "phase1_regressions": 18,
+  "speculation_cases": 16,
+  "runtime_and_frozen_policy_unchanged": true,
+  "clean_source_copy_hashes_match": true,
+  "benchmark_rerun": false,
+  "representative_trace_verified": true,
+  "tsan": "untested",
+  "macos_asan": "stalled probes; no passing runtime suite",
+  "linux_asan": "passed combined ASan+UBSan 34/34"
+}

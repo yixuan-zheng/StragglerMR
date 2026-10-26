@@ -1,0 +1,21 @@
+{
+  "study_id": "phase2-fixed-v1",
+  "frozen_before_measurements": "2026-10-26",
+  "policy": "docs/speculative-policy.md",
+  "input": {"operation": "ascii_word_count", "files": 24, "bytes_per_file": 65536, "payload": "alpha beta gamma delta epsilon zeta eta theta iota kappa\n"},
+  "repetitions": 3,
+  "worker_capacity": 1,
+  "service_ms": 40,
+  "coordinator": {"attempt_timeout_ms": 2000, "rpc_timeout_ms": 250, "job_timeout_ms": 15000, "drain_ms": 5000, "max_attempts": 3},
+  "scenarios": [
+    {"name": "healthy", "workers": 4, "faults": []},
+    {"name": "severe", "workers": 4, "faults": [{"worker": 0, "task": 0, "kind": "delay", "delay_ms": 1600}]},
+    {"name": "moderate", "workers": 4, "faults": [{"worker": 0, "task": 0, "kind": "delay", "delay_ms": 600}, {"worker": 1, "task": 1, "kind": "delay", "delay_ms": 600}]},
+    {"name": "no_spare", "workers": 1, "faults": [{"worker": 0, "task": 23, "kind": "delay", "delay_ms": 800}]},
+    {"name": "crash", "workers": 4, "faults": [{"worker": 0, "task": 0, "kind": "delay-crash", "delay_ms": 600}]}
+  ],
+  "execution_order": "Serial runs only. Rotate scenario order left by repetition index. Within each matched pair, off/on for even (repetition + original scenario index), on/off for odd.",
+  "resource_measurement": "Drain surviving attempts after publication; reconcile every coordinator attempt with a local timing.tsv, including injected crashes. Occupied-slot time includes synthetic service delay; CPU uses CLOCK_THREAD_CPUTIME_ID. Report coordinator commit latency, external publication-observation latency, map latency and full drain/process duration separately.",
+  "no_spare_rationale": "One worker with one physical slot is a saturated control with no other worker on which a backup could execute, even after enough comparable peers complete. Worker count is identical within each off/on pair. Multiworker concurrency limits are validated by gated tests.",
+  "acceptance": "Retain every run. Require exact serial-oracle output and complete per-attempt timing reconciliation; never filter runs for speedup. Mark incomplete/failed runs explicitly and investigate correctness without changing policy thresholds or schedules."
+}

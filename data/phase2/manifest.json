@@ -1,0 +1,115 @@
+{
+  "manifest": {
+    "study_id": "phase2-fixed-v1",
+    "frozen_before_measurements": "2026-10-26",
+    "policy": "docs/speculative-policy.md",
+    "input": {
+      "operation": "ascii_word_count",
+      "files": 24,
+      "bytes_per_file": 65536,
+      "payload": "alpha beta gamma delta epsilon zeta eta theta iota kappa\n"
+    },
+    "repetitions": 3,
+    "worker_capacity": 1,
+    "service_ms": 40,
+    "coordinator": {
+      "attempt_timeout_ms": 2000,
+      "rpc_timeout_ms": 250,
+      "job_timeout_ms": 15000,
+      "drain_ms": 5000,
+      "max_attempts": 3
+    },
+    "scenarios": [
+      {
+        "name": "healthy",
+        "workers": 4,
+        "faults": []
+      },
+      {
+        "name": "severe",
+        "workers": 4,
+        "faults": [
+          {
+            "worker": 0,
+            "task": 0,
+            "kind": "delay",
+            "delay_ms": 1600
+          }
+        ]
+      },
+      {
+        "name": "moderate",
+        "workers": 4,
+        "faults": [
+          {
+            "worker": 0,
+            "task": 0,
+            "kind": "delay",
+            "delay_ms": 600
+          },
+          {
+            "worker": 1,
+            "task": 1,
+            "kind": "delay",
+            "delay_ms": 600
+          }
+        ]
+      },
+      {
+        "name": "no_spare",
+        "workers": 1,
+        "faults": [
+          {
+            "worker": 0,
+            "task": 23,
+            "kind": "delay",
+            "delay_ms": 800
+          }
+        ]
+      },
+      {
+        "name": "crash",
+        "workers": 4,
+        "faults": [
+          {
+            "worker": 0,
+            "task": 0,
+            "kind": "delay-crash",
+            "delay_ms": 600
+          }
+        ]
+      }
+    ],
+    "execution_order": "Serial runs only. Rotate scenario order left by repetition index. Within each matched pair, off/on for even (repetition + original scenario index), on/off for odd.",
+    "resource_measurement": "Drain surviving attempts after publication; reconcile every coordinator attempt with a local timing.tsv, including injected crashes. Occupied-slot time includes synthetic service delay; CPU uses CLOCK_THREAD_CPUTIME_ID. Report coordinator commit latency, external publication-observation latency, map latency and full drain/process duration separately.",
+    "no_spare_rationale": "One worker with one physical slot is a saturated control with no other worker on which a backup could execute, even after enough comparable peers complete. Worker count is identical within each off/on pair. Multiworker concurrency limits are validated by gated tests.",
+    "acceptance": "Retain every run. Require exact serial-oracle output and complete per-attempt timing reconciliation; never filter runs for speedup. Mark incomplete/failed runs explicitly and investigate correctness without changing policy thresholds or schedules."
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "8683d81e19a227943459d5f7680c9b0d10a8ab4f593872968db20f69854e1673",
+    "benchmarks/analyze.py": "84ac312d10765bc8ec482884c0ec7b2f063021a425cef15ac152bf0017b7ddd6",
+    "benchmarks/manifest.json": "1ac8494f9dbd399c8914e41fa956155905ca59132e0ed9231278a5585f6ff929",
+    "benchmarks/run_study.py": "c58e38340570519c068dd75876ca2c0bfcb106eecea2d8beb9ca92e0bc51de03",
+    "docs/speculative-policy.md": "a8d9bd8eec8ea4bf4d86da8ded96140232ccbc45d8ae63f5623395027e6dc219",
+    "proto/runtime.proto": "d3e14e3e765acda5cd20a680c5394cee74e0ad41ffc30d3b2f82e730307e030b",
+    "src/common.cpp": "8cd2256e19e6095fea399e361d8b7699977c51e18a1c412de493d41c3dfb0752",
+    "src/common.h": "408ca6696e067316df74a9949e2577a4359fc3b91ec6fdeb294a20ab3fbf2469",
+    "src/coordinator.cpp": "c45a23d3ca572eafd9d1cc6b9e22ab8e4543b85733e20366cfa12fb855b0f2f6",
+    "src/worker.cpp": "584ad50f42e9c1d54a8283d19793f923513f01331e589fee28dcf626fa9bd648",
+    "tests/cluster.py": "4d2f7a744e387b1aff5ac8cb183228b84c3ea586a851745b273cc882345bb0fb",
+    "tests/integration.py": "6af1a5f6bf038356d18bd3ac2828282b9f96b5211b3448ee543d79347f45c689",
+    "tests/oracle.py": "0aa100d0d97759713958feac601d7a082327f71268a58004cd16a3e844eb89ef",
+    "tests/protocol_probe.cpp": "bbbff1a8d94921679f1f96fcbc189b7f2179f27bfaaa2e010e59d6a6e76c47b0",
+    "tests/sanitizer_probe.py": "d62e086cb9a584c99e3f621d08c85aff0a28deb0b24f888b48b0c9257cd35ee2",
+    "tests/speculation.py": "f351bea9c5ed9623bd34e8d3bed7f1baf0553b729b55531dd8defa7930a1cc0d",
+    "tests/validation.cpp": "ba249ff47eafb0419bd7f886d207e7824508dc897a7a77477aa5e7d119dbe119"
+  },
+  "binary_sha256": {
+    "mr_worker": "63ce767c1a3cb92285b60ffec0197dbc888f45bbabd55884be7409473a60336d",
+    "mr_coordinator": "d3f3228e1f506baddabb1c3721368e3f46eaf5428c41e84f0a9d8d617cd08196"
+  },
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.11.5 (v3.11.5:cce6ba91b3, Aug 24 2023, 10:50:31) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "curated_evidence": true,
+  "original_observations_sha256": "1be5484d1feb12c0e71574f2e3460dffeda2a44bb50e9b0d1a27e0dd34a18d82"
+}

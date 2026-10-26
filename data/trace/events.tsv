@@ -1,0 +1,53 @@
+1	job_started	0	-	0	job-example
+3	map_started	0	-	0	
+3	submitted	0	t0-a1	0	normal
+3	submitted	1	t1-a1	1	normal
+3	speculation_blocked	2	-	0	ordinary_pending
+16	accepted	1	t1-a1	1	
+16	submitted	2	t2-a1	1	normal
+16	speculation_blocked	3	-	0	ordinary_pending
+30	accepted	2	t2-a1	1	
+30	submitted	3	t3-a1	1	normal
+30	speculation_blocked	4	-	0	ordinary_pending
+41	accepted	3	t3-a1	1	
+41	submitted	4	t4-a1	1	normal
+41	speculation_blocked	5	-	0	ordinary_pending
+53	accepted	4	t4-a1	1	
+53	submitted	5	t5-a1	1	normal
+54	speculation_blocked	6	-	0	ordinary_pending
+66	accepted	5	t5-a1	1	
+66	submitted	6	t6-a1	1	normal
+66	speculation_blocked	7	-	0	ordinary_pending
+79	accepted	6	t6-a1	1	
+79	submitted	7	t7-a1	1	normal
+79	speculation_blocked	8	-	0	ordinary_pending
+92	accepted	7	t7-a1	1	
+92	submitted	8	t8-a1	1	normal
+92	speculation_blocked	9	-	0	ordinary_pending
+104	accepted	8	t8-a1	1	
+104	submitted	9	t9-a1	1	normal
+104	speculation_blocked	10	-	0	ordinary_pending
+117	accepted	9	t9-a1	1	
+117	submitted	10	t10-a1	1	normal
+117	speculation_blocked	11	-	0	ordinary_pending
+128	accepted	10	t10-a1	1	
+128	submitted	11	t11-a1	1	normal
+128	speculation_blocked	12	-	0	ordinary_pending
+140	accepted	11	t11-a1	1	
+140	submitted	12	t12-a1	1	normal
+140	speculation_blocked	13	-	0	ordinary_pending
+151	accepted	12	t12-a1	1	
+151	submitted	13	t13-a1	1	normal
+151	speculation_blocked	14	-	0	ordinary_pending
+164	accepted	13	t13-a1	1	
+164	submitted	14	t14-a1	1	normal
+164	speculation_blocked	15	-	0	ordinary_pending
+177	accepted	14	t14-a1	1	
+177	submitted	15	t15-a1	1	normal
+196	accepted	15	t15-a1	1	
+208	speculation_decision	0	t0-a1	1	peers=15 median_us=230 threshold_us=200000 original_age_us=205326
+208	submitted	0	t0-a2	1	speculation
+221	superseded	0	t0-a1	0	
+221	accepted	0	t0-a2	1	
+222	job_committed	0	-	0	result.tsv
+234	late_rejected	0	t0-a1	0	

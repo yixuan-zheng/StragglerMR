@@ -1,0 +1,36 @@
+syntax = "proto3";
+package stragglermr;
+
+// A worker owns execution slots; the coordinator alone owns acceptance.
+service Worker {
+  rpc Submit(AttemptRequest) returns (SubmitReply);
+  rpc Inspect(InspectRequest) returns (WorkerSnapshot);
+}
+enum AttemptReason { NORMAL = 0; FAILURE_RETRY = 1; DEADLINE_RETRY = 2; SPECULATION = 3; }
+message AttemptRequest {
+  string job_id = 1;
+  uint32 task_id = 2;
+  string attempt_id = 3;
+  string input_path = 4;
+  AttemptReason reason = 5;
+}
+message SubmitReply { bool admitted = 1; string reason = 2; }
+message InspectRequest { string job_id = 1; }
+enum AttemptState { RUNNING = 0; SUCCEEDED = 1; FAILED = 2; }
+message AttemptRecord {
+  AttemptRequest request = 1;
+  AttemptState state = 2;
+  string artifact_path = 3;
+  string error = 4;
+  uint64 runtime_us = 5;
+  uint64 cpu_us = 6;
+  string artifact_sha256 = 7;
+  uint64 artifact_bytes = 8;
+}
+message WorkerSnapshot {
+  string instance_id = 1;
+  uint32 capacity = 2;
+  uint32 active = 3;
+  uint32 peak_active = 4;
+  repeated AttemptRecord attempts = 5;
+}
